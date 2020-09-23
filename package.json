@@ -3,12 +3,12 @@
     "version": "0.2.1",
     "license": "LGPL-3.0-or-later",
     "description": "Promise based library for the Connective.eu API",
-    "repository": "github:MatthiasKunnen/connective-api",
+    "repository": "github:MatthiasKunnen/node-connective",
     "author": "Matthias Kunnen <matthias.kunnen@gmail.com>",
     "bugs": {
-        "url": "https://github.com/MatthiasKunnen/connective-api/issues"
+        "url": "https://github.com/MatthiasKunnen/node-connective/issues"
     },
-    "homepage": "https://github.com/MatthiasKunnen/connective-api#readme",
+    "homepage": "https://github.com/MatthiasKunnen/node-connective#readme",
     "private": false,
     "main": "lib/cjs/index.js",
     "module": "lib/esm5/index.js",
