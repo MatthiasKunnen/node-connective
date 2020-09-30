@@ -237,7 +237,7 @@ export type AddDocumentPdfApiInputSigningField =
     | SigningLocationByCoordinatesInput
     | SigningLocationByIdInput
 
-export interface AddDocumentPdfApiInput extends AddDocumentInput {
+export interface AddDocumentPdfApiInput extends AddDocumentInputBase {
 
     /**
      * See section 5.2.7.1.
@@ -317,24 +317,22 @@ export interface AddDocumentPdfApiInput extends AddDocumentInput {
     TargetType?: string;
 }
 
-export type Document = Buffer | Readable | string;
-
-export interface AddDocumentPdfInput {
+export interface AddDocumentInputBase {
 
     /**
      * The ID of the package.
      */
     packageId: string;
 
-    /**
-     * PDF document.
-     */
-    document: Document;
+    document: Buffer | Readable | string;
+}
+
+export interface AddDocumentPdfInput extends AddDocumentInputBase {
 
     input: AddDocumentPdfApiInput;
 }
 
-export interface AddDocumentXmlApiInput extends AddDocumentInput {
+export interface AddDocumentXmlApiInput {
 
     /**
      * See section 5.2.7.1.
@@ -342,17 +340,7 @@ export interface AddDocumentXmlApiInput extends AddDocumentInput {
     SigningFields: Array<SigningLocationInputBase>;
 }
 
-export interface AddDocumentXmlInput {
-
-    /**
-     * The ID of the package.
-     */
-    packageId: string;
-
-    /**
-     * XML document.
-     */
-    document: Document;
+export interface AddDocumentXmlInput extends AddDocumentInputBase {
 
     input: AddDocumentXmlApiInput;
 
