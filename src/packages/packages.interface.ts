@@ -158,9 +158,27 @@ export interface SigningLocationByCoordinatesInput extends SigningLocationInputB
      * not supported. Negative page numbers work as described in section 10.1.
      */
     PageNumber: number;
+
+    /**
+     * Width in points (1/72th of an inch). Use the unit utils for conversion.
+     */
     Width: string;
+
+    /**
+     * Height in points (1/72th of an inch). Use the unit utils for conversion.
+     */
     Height: string;
+
+    /**
+     * Distance from the left of the page in points (1/72th of an inch). Use the unit utils for
+     * conversion.
+     */
     Left: string;
+
+    /**
+     * Distance from the top of the page in points (1/72th of an inch). Use the unit utils for
+     * conversion.
+     */
     Top: string;
 }
 
