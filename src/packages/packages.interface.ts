@@ -1,3 +1,5 @@
+import {Readable} from 'stream';
+
 export interface CreatePackageInput {
 
     /**
@@ -315,6 +317,8 @@ export interface AddDocumentPdfApiInput extends AddDocumentInput {
     TargetType?: string;
 }
 
+export type Document = Buffer | Readable | string;
+
 export interface AddDocumentPdfInput {
 
     /**
@@ -323,9 +327,9 @@ export interface AddDocumentPdfInput {
     packageId: string;
 
     /**
-     * Buffer of the PDF document.
+     * PDF document.
      */
-    document: Buffer | ReadableStream | WritableStream | string;
+    document: Document;
 
     input: AddDocumentPdfApiInput;
 }
@@ -346,9 +350,9 @@ export interface AddDocumentXmlInput {
     packageId: string;
 
     /**
-     * Buffer of the XML document.
+     * XML document.
      */
-    document: Buffer;
+    document: Document;
 
     input: AddDocumentXmlApiInput;
 
