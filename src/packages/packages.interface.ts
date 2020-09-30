@@ -237,7 +237,7 @@ export type AddDocumentPdfApiInputSigningField =
     | SigningLocationByCoordinatesInput
     | SigningLocationByIdInput
 
-export interface AddDocumentPdfApiInput extends AddDocumentInputBase {
+export interface AddDocumentPdfApiInput extends AddDocumentInput {
 
     /**
      * See section 5.2.7.1.
@@ -332,7 +332,7 @@ export interface AddDocumentPdfInput extends AddDocumentInputBase {
     input: AddDocumentPdfApiInput;
 }
 
-export interface AddDocumentXmlApiInput {
+export interface AddDocumentXmlApiInput extends AddDocumentInput {
 
     /**
      * See section 5.2.7.1.
