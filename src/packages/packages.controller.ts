@@ -1,3 +1,5 @@
+import {Readable} from 'stream';
+
 import {AxiosInstance, AxiosResponse} from 'axios';
 import * as FormData from 'form-data';
 
@@ -81,6 +83,56 @@ export class Packages {
 
     async deleteDocument(packageId: string, documentId: string): Promise<AxiosResponse<{}>> {
         return this.http.delete(`/v3/packages/${packageId}/documents/${documentId}`);
+    }
+
+    /**
+     * Download the package. Important: the status of the package must be "Finished".
+     * @param packageId The ID of the package.
+     * @param responseType The response type you desire. If set to "arraybuffer" the data property
+     * will be a Buffer. If set to 'stream' the property will be of type Readable.
+     */
+    async download(
+        packageId: string,
+        responseType: 'arraybuffer',
+    ): Promise<AxiosResponse<Buffer>>
+    async download(
+        packageId: string,
+        responseType: 'stream',
+    ): Promise<AxiosResponse<Readable>>
+    async download(
+        packageId: string,
+        responseType: 'arraybuffer' | 'stream',
+    ): Promise<AxiosResponse<any>> {
+        return this.http.get(`/v3/packages/${packageId}/download`, {
+            responseType: responseType,
+        });
+    }
+
+    /**
+     * Download a document from a package. Important: the status of the package must be "Finished".
+     * @param packageId The ID of the package.
+     * @param documentId The ID of the document to download.
+     * @param responseType The response type you desire. If set to "arraybuffer" the data property
+     * will be a Buffer. If set to 'stream' the property will be of type Readable.
+     */
+    async downloadDocument(
+        packageId: string,
+        documentId: string,
+        responseType: 'arraybuffer',
+    ): Promise<AxiosResponse<Buffer>>
+    async downloadDocument(
+        packageId: string,
+        documentId: string,
+        responseType: 'stream',
+    ): Promise<AxiosResponse<Readable>>
+    async downloadDocument(
+        packageId: string,
+        documentId: string,
+        responseType: 'arraybuffer' | 'stream',
+    ): Promise<AxiosResponse<any>> {
+        return this.http.get(`/v3/packages/${packageId}/download/${documentId}`, {
+            responseType: responseType,
+        });
     }
 
     async getSigningLocations(
