@@ -1,5 +1,7 @@
 import {Readable} from 'stream';
 
+import {RequireWithDiscriminator} from '../utils/types';
+
 export interface CreatePackageInput {
 
     /**
@@ -896,7 +898,7 @@ export interface PackageStakeholderActorBase {
     ActorStatus: ActorStatus;
 }
 
-export interface PackageStakeholderActorApproverAndSigner extends PackageStakeholderActorBase {
+export interface PackageStakeholderActorApproverAndSignerBase extends PackageStakeholderActorBase {
 
     Type: 'Approver' | 'Signer';
 
@@ -928,6 +930,16 @@ export interface PackageStakeholderActorReceiver extends PackageStakeholderActor
 
     Type: 'Receiver';
 }
+
+export type PackageStakeholderActorApproverAndSigner = RequireWithDiscriminator<
+    RequireWithDiscriminator<
+        PackageStakeholderActorApproverAndSignerBase,
+        'ActorStatus',
+        'Rejected',
+        'Reason'>,
+    'ActorStatus',
+    'Failed' | 'Finished' | 'Rejected' | 'Skipped',
+    'CompletedTimestamp'>;
 
 export type PackageStakeholderActor =
     | PackageStakeholderActorApproverAndSigner
