@@ -849,7 +849,7 @@ export type ActorStatus =
     | 'Draft'
     | 'Failed'
     | 'Finished'
-    | 'Inprogress'
+    | 'InProgress'
     | 'Rejected'
     | 'Skipped'
 ;
