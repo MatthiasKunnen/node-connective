@@ -1,7 +1,7 @@
 [![npm version](https://img.shields.io/npm/v/connective-api.svg?logo=npm&style=for-the-badge)](https://www.npmjs.com/package/connective-api)
 [![Build Status](https://img.shields.io/github/workflow/status/MatthiasKunnen/node-connective/Main?label=Build&logo=github&style=for-the-badge)
 ](https://github.com/MatthiasKunnen/node-connective/actions)
-[![License](https://img.shields.io/npm/l/connective-api?&style=for-the-badge&color=green)
+[![License](https://img.shields.io/npm/l/connective-api?style=for-the-badge&color=green)
 ](https://github.com/MatthiasKunnen/node-connective/blob/master/LICENSE)
 
 # Connective.eu API library
