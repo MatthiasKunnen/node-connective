@@ -53,6 +53,7 @@ testem.log
 .env
 *.local
 *.local.*
+.~*#
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*

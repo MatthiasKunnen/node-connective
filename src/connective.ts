@@ -1,6 +1,7 @@
 import axios, {AxiosInstance, AxiosRequestConfig} from 'axios';
 
-import {Packages} from './packages/packages.controller';
+import {PackageController} from './packages/package.controller';
+import {SigningMethodsController} from './signing-methods/signing-methods.controller';
 
 export interface ConnectiveOptions {
     /**
@@ -14,7 +15,8 @@ export interface ConnectiveOptions {
 
 export class Connective {
 
-    packages: Packages;
+    packages: PackageController;
+    signingMethods: SigningMethodsController;
 
     private readonly http: AxiosInstance;
 
@@ -25,7 +27,7 @@ export class Connective {
         const basicHeaderValue = `${options.username}:${options.password}`;
 
         this.http = axios.create({
-            baseURL: `${options.endpoint}/webportalapi`,
+            baseURL: `${options.endpoint}/esig/webportalapi/v4`,
             headers: {
                 Authorization: `Basic ${Buffer.from(basicHeaderValue).toString('base64')}`,
                 'Content-Type': 'application/json; charset=utf-8',
@@ -36,6 +38,7 @@ export class Connective {
             ...axiosConfig,
         });
 
-        this.packages = new Packages(this.http);
+        this.packages = new PackageController(this.http);
+        this.signingMethods = new SigningMethodsController(this.http);
     }
 }

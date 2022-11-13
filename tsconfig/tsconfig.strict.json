@@ -1,7 +1,12 @@
 {
-    "extends": "./tsconfig.app.json",
+    "extends": "./tsconfig.base.json",
     "compilerOptions": {
         "allowUnreachableCode": false,
-        "noUnusedLocals": true
-    }
+        "noEmit": true,
+        "noUnusedLocals": true,
+    },
+    "include": [
+        "../src/**/*.ts",
+        "../tests/**/*.ts"
+    ]
 }
