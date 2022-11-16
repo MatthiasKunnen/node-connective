@@ -30,6 +30,9 @@ export class Connective {
                 Authorization: `Basic ${Buffer.from(basicHeaderValue).toString('base64')}`,
                 'Content-Type': 'application/json; charset=utf-8',
             },
+            // Prevent loading whole stream into memory, see
+            // https://github.com/axios/axios/issues/1045
+            maxRedirects: 0,
             ...axiosConfig,
         });
 
