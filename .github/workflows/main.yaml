@@ -5,7 +5,7 @@ on:
 
 jobs:
   build:
-    name: Lint, Test, and build
+    name: Lint, compile, and build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -36,10 +36,33 @@ jobs:
     name: Test
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js 16
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
+      - name: Cache Yarn packages
+        uses: actions/cache@v3.0.11
+        id: yarn-cache
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+      - name: Yarn install
+        run: yarn install --frozen-lockfile
       - name: Test
-        continue-on-error: true
         run: yarn run coverage
+        env:
+          CONNECTIVE_ENDPOINT: ${{ secrets.CONNECTIVE_ENDPOINT }}
+          CONNECTIVE_INITIATOR: ${{ secrets.CONNECTIVE_INITIATOR }}
+          CONNECTIVE_PASSWORD: ${{ secrets.CONNECTIVE_PASSWORD }}
+          CONNECTIVE_USERNAME: ${{ secrets.CONNECTIVE_USERNAME }}
       - name: Upload coverage
+        if: always()
         uses: codecov/codecov-action@v3
         with:
           files: ./coverage/lcov.info
