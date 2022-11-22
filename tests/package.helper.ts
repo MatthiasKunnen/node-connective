@@ -1,3 +1,6 @@
+import * as fs from 'fs';
+import * as path from 'path';
+
 import {
     Connective,
     ExternalReference,
@@ -78,4 +81,16 @@ export function sortPackageData(data: Sortable) {
             }
         });
     });
+}
+
+export class DocumentsStore {
+
+    static async getSimpleDocumentBuffer(): Promise<Buffer> {
+        const simpleDocumentFilename = path.join(__dirname, 'simple.pdf');
+        return fs.promises.readFile(simpleDocumentFilename);
+    }
+
+    static async getSimpleDocumentBase64(): Promise<string> {
+        return this.getSimpleDocumentBuffer().then(buffer => buffer.toString('base64'));
+    }
 }

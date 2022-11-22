@@ -1,6 +1,4 @@
 import {randomUUID} from 'crypto';
-import * as fs from 'fs';
-import * as path from 'path';
 import {Readable} from 'stream';
 
 import {
@@ -8,7 +6,7 @@ import {
     Document,
 } from '../src';
 import {jestGetErrorAsync} from './jest.helper';
-import {registerPackageSetUpAndTearDown, requireEnv} from './package.helper';
+import {DocumentsStore, registerPackageSetUpAndTearDown, requireEnv} from './package.helper';
 
 let connectiveClient: Connective;
 const {packagesToDelete} = registerPackageSetUpAndTearDown({
@@ -22,8 +20,7 @@ let documentBase64: string;
 const initiator = requireEnv('CONNECTIVE_INITIATOR');
 
 beforeAll(async () => {
-    const testDocumentFilename = path.join(__dirname, 'simple.pdf');
-    documentBase64 = (await fs.promises.readFile(testDocumentFilename)).toString('base64');
+    documentBase64 = await DocumentsStore.getSimpleDocumentBase64();
 
     const createPackageResponse = await connectiveClient.packages.create({
         Initiator: initiator,
