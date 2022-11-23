@@ -3,6 +3,7 @@ import axiosBetterStacktrace from 'axios-better-stacktrace';
 
 import {PackageController} from './packages/package.controller';
 import {SigningMethodsController} from './signing-methods/signing-methods.controller';
+import {isAxiosConnectiveError} from './utils/error.util';
 
 export interface ConnectiveOptions {
     /**
@@ -37,6 +38,20 @@ export class Connective {
             // https://github.com/axios/axios/issues/1045
             maxRedirects: 0,
             ...axiosConfig,
+        });
+
+        this.http.interceptors.response.use(undefined, (error: unknown) => {
+            if (!isAxiosConnectiveError(error)) {
+                throw error;
+            }
+
+            error.message += `. Connective errors:\n${error.response.data
+                .map(e => {
+                    return ` - ${e.ErrorCode}: ${e.ErrorMessage}`;
+                })
+                .join('\n')}`;
+
+            throw error;
         });
 
         // Include call site of request causing error in stack trace. See:

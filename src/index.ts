@@ -14,5 +14,7 @@ export * from './packages/stakeholders/stakeholder.interface';
 export * from './packages/stakeholders/stakeholder.controller';
 export * from './signing-methods/signing-methods.interface';
 export * from './signing-methods/signing-methods.controller';
-export * from './utils/unit.util';
+export * from './utils/error.util';
+export * from './utils/object.util';
 export * from './utils/types';
+export * from './utils/unit.util';
