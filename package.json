@@ -57,7 +57,8 @@
     "files": [
         "lib/**/!(*.tsbuildinfo)",
         "src",
-        "!src/**/*.local.*"
+        "!src/**/*.local.*",
+        "!src/**/*.spec.ts"
     ],
     "husky": {
         "hooks": {
