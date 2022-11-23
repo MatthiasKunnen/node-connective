@@ -10,16 +10,20 @@ interface PackageSetUpAndTearDown {
     setConnectiveClient: (client: Connective) => void;
 }
 
+export function getNewConnectiveInstance(): Connective {
+    return new Connective({
+        endpoint: requireEnv('CONNECTIVE_ENDPOINT'),
+        password: requireEnv('CONNECTIVE_PASSWORD'),
+        username: requireEnv('CONNECTIVE_USERNAME'),
+    });
+}
+
 export function registerPackageSetUpAndTearDown(input: PackageSetUpAndTearDown) {
     let connectiveClient: Connective;
     const packagesToDelete: Array<string> = [];
 
     beforeAll(() => {
-        connectiveClient = new Connective({
-            endpoint: requireEnv('CONNECTIVE_ENDPOINT'),
-            password: requireEnv('CONNECTIVE_PASSWORD'),
-            username: requireEnv('CONNECTIVE_USERNAME'),
-        });
+        connectiveClient = getNewConnectiveInstance();
         input.setConnectiveClient(connectiveClient);
     });
 

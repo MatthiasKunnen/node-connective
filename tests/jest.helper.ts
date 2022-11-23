@@ -4,6 +4,7 @@
  */
 export class NoErrorThrownError extends Error {
     constructor() {
+        // istanbul ignore next (Actually covered)
         super('Function did not throw an error');
     }
 }

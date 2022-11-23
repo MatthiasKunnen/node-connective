@@ -200,6 +200,50 @@ describe('sortPackageData', () => {
         });
     });
 
+    it('does not error on undefined stakeholder actor elements', () => {
+        const data = {
+            Stakeholders: [
+                {
+                    ExternalReference: '2',
+                    Actors: [
+                        {
+                            Type: 'receiver',
+                            Elements: undefined,
+                        },
+                        {
+                            Type: 'formFiller',
+                        },
+                    ],
+                },
+                {
+                    ExternalReference: '1',
+                },
+            ],
+        };
+
+        sortPackageData(data);
+
+        expect(data).toEqual<typeof data>({
+            Stakeholders: [
+                {
+                    ExternalReference: '1',
+                },
+                {
+                    ExternalReference: '2',
+                    Actors: [
+                        {
+                            Type: 'formFiller',
+                        },
+                        {
+                            Type: 'receiver',
+                            Elements: undefined,
+                        },
+                    ],
+                },
+            ],
+        });
+    });
+
     it('sorts stakeholders actor elements by external reference', () => {
         const data = {
             Stakeholders: [
