@@ -1,4 +1,5 @@
 import axios, {AxiosInstance, AxiosRequestConfig} from 'axios';
+import axiosBetterStacktrace from 'axios-better-stacktrace';
 
 import {PackageController} from './packages/package.controller';
 import {SigningMethodsController} from './signing-methods/signing-methods.controller';
@@ -36,6 +37,13 @@ export class Connective {
             // https://github.com/axios/axios/issues/1045
             maxRedirects: 0,
             ...axiosConfig,
+        });
+
+        // Include call site of request causing error in stack trace. See:
+        // - https://github.com/axios/axios/issues/2387
+        // - https://github.com/axios/axios/issues/5012
+        axiosBetterStacktrace(this.http, {
+            errorMsg: 'Originates at:',
         });
 
         this.packages = new PackageController(this.http);
