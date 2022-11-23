@@ -60,7 +60,7 @@ describe('all', () => {
             Stakeholders: stakeholderCreateData,
         });
 
-        packagesToDelete.push(packageId);
+        packagesToDelete.push(createPackageResponse.data.Id);
         const {data: allStakeholders} = await connectiveClient.packages.stakeholders.all(
             createPackageResponse.data.Id,
         );
