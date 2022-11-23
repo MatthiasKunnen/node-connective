@@ -1,12 +1,16 @@
 import {randomUUID} from 'crypto';
 import {Readable} from 'stream';
 
+import {jestGetErrorAsync} from '../../../tests/jest.helper';
+import {
+    DocumentsStore,
+    registerPackageSetUpAndTearDown,
+    requireEnv,
+} from '../../../tests/package.helper';
 import {
     Connective,
     Document,
-} from '../src';
-import {jestGetErrorAsync} from './jest.helper';
-import {DocumentsStore, registerPackageSetUpAndTearDown, requireEnv} from './package.helper';
+} from '../../index';
 
 let connectiveClient: Connective;
 const {packagesToDelete} = registerPackageSetUpAndTearDown({

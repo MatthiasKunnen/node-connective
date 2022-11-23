@@ -4,6 +4,7 @@
         "noEmit": true,
     },
     "include": [
+        "../src/**/*.spec.ts",
         "../tests/**/*.ts",
     ]
 }

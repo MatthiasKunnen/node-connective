@@ -1,6 +1,6 @@
-import {Connective} from '../src';
-import {SigningMethod} from '../src/signing-methods/signing-methods.interface';
-import {registerPackageSetUpAndTearDown} from './package.helper';
+import {registerPackageSetUpAndTearDown} from '../../tests/package.helper';
+import {Connective} from '../index';
+import {SigningMethod} from './signing-methods.interface';
 
 let connectiveClient: Connective;
 registerPackageSetUpAndTearDown({

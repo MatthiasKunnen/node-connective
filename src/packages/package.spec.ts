@@ -1,19 +1,19 @@
 import {randomUUID} from 'crypto';
 import {Readable} from 'stream';
 
-import {
-    Connective,
-    CreatePackageInput,
-    Package,
-    PackageStatus,
-} from '../src';
-import {jestGetErrorAsync} from './jest.helper';
+import {jestGetErrorAsync} from '../../tests/jest.helper';
 import {
     DocumentsStore,
     registerPackageSetUpAndTearDown,
     requireEnv,
     sortPackageData,
-} from './package.helper';
+} from '../../tests/package.helper';
+import {
+    Connective,
+    CreatePackageInput,
+    Package,
+    PackageStatus,
+} from '../index';
 
 const initiator = requireEnv('CONNECTIVE_INITIATOR');
 let connectiveClient: Connective;

@@ -1,4 +1,4 @@
-import {millimeterToPoints, pointsToMillimeter} from '../src';
+import {millimeterToPoints, pointsToMillimeter} from '../index';
 
 describe('millimeterToPoints', () => {
     it('correctly converts 297 mm to points', () => {

@@ -16,6 +16,7 @@ module.exports = {
         ],
     },
     testMatch: [
+        '**/src/**/*.spec.ts',
         '**/tests/**/*.spec.ts',
     ],
 };

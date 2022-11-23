@@ -1,5 +1,6 @@
 import {randomUUID} from 'crypto';
 
+import {registerPackageSetUpAndTearDown, requireEnv} from '../../../tests/package.helper';
 import {
     Connective,
     CreateStakeholderPersonInput,
@@ -7,9 +8,8 @@ import {
     StakeholderContactGroup,
     StakeholderGroup,
     StakeholderPerson,
-} from '../src';
-import {Noop} from '../src/utils/types';
-import {registerPackageSetUpAndTearDown, requireEnv} from './package.helper';
+} from '../../index';
+import {Noop} from '../../utils/types';
 
 let connectiveClient: Connective;
 const {packagesToDelete} = registerPackageSetUpAndTearDown({
