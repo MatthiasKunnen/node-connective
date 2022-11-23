@@ -22,6 +22,7 @@
         "prepublishOnly": "yarn run build",
         "run": "ts-node src/run.local.ts",
         "test": "jest",
+        "test:debug": "node --inspect-brk $(yarn bin jest)",
         "test:ts": "tsc -p tsconfig/tsconfig.strict.json"
     },
     "peerDependencies": {
