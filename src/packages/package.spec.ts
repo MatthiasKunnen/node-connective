@@ -649,7 +649,6 @@ describe('updateStatus', () => {
             ],
         });
         const packageId = createPackageResponse.data.Id;
-        packagesToDelete.push(packageId);
 
         const updateStatusResponse = await connectiveClient.packages.updateStatus({
             Status: 'Pending',
