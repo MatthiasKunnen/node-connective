@@ -20,7 +20,11 @@ export class Connective {
     packages: PackageController;
     signingMethods: SigningMethodsController;
 
-    private readonly http: AxiosInstance;
+    /**
+     * The axios instance used by this library to execute HTTP calls. Can be used to perform your
+     * own calls to Connective that might not have been implemented in the library.
+     */
+    readonly http: AxiosInstance;
 
     constructor(
         options: ConnectiveOptions,
