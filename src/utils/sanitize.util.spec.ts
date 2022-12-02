@@ -189,7 +189,7 @@ const allowedCharacters = [
 const utf16UpperBound = 65535;
 const charLimit = 150;
 
-describe('sanitize', () => {
+describe('sanitizeConnectiveName', () => {
     it('limits the name to 150 characters', () => {
         const name = sanitizeConnectiveName('a'.repeat(200));
         expect(name.length).toBe(charLimit);
