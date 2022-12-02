@@ -225,4 +225,9 @@ describe('sanitizeConnectiveName', () => {
             expect(sanitized).toBe(test);
         }
     });
+
+    it('removes repeated illegal characters', () => {
+        const sanitized = sanitizeConnectiveName('a<<a<<<a');
+        expect(sanitized).toBe('aaa');
+    });
 });
