@@ -20,7 +20,7 @@
         "coverage": "yarn run test --coverage",
         "lint": "eslint \"*.js\" \"src/**/*.ts\" \"tests/**/*.ts\"",
         "prepublishOnly": "yarn run build",
-        "run": "ts-node src/run.local.ts",
+        "run": "TS_NODE_PROJECT=tsconfig/tsconfig.run.json node --require ts-node/register src/run.local.ts",
         "test": "jest",
         "test:debug": "node --inspect-brk $(yarn bin jest)",
         "test:ts": "tsc -p tsconfig/tsconfig.strict.json"
