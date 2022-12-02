@@ -15,13 +15,15 @@ export interface AddDocumentInput {
 
 export interface AddDocumentParametersInput {
     /**
-     * Name of the document. The name is displayed in the eSignatures WebPortal. Note: do not add an
-     * extension to the name value. Important: The name must not contain any special characters such
-     * as slash, backslash, question mark, percent, asterisk, colon, pipe, quote, double quote, less
-     * than, greater than. Note: when using itsme signing, only use characters that are supported by
-     * ISO 8859-15. This character set supports most usual characters, but some software-generated
-     * characters like curly apostrophes and long dashes are not supported. Minimum length: 1
-     * Maximum length: 150
+     * Name of the document. The name is displayed in the eSignatures WebPortal.
+     *
+     * **Sanitization recommended**: Sanitize the name using the `sanitizeConnectiveName` utility
+     * to remove characters that are illegal in filenames and are not supported by
+     * ISO 8859-15 (Itmse limitation).
+     *
+     * Note: do not add an extension to the name value.
+     * Minimum length: 1.
+     * Maximum length: 150.
      */
     Name: string;
 

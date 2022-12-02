@@ -15,17 +15,13 @@ export interface CreatePackageWithoutTemplateInput {
     /**
      * Package name, seen in the eSignatures Portal and when downloading as zip file.
      *
-     * Note: do not add an extension to the PackageName value.
+     * **Sanitization recommended**: Sanitize the name using the `sanitizeConnectiveName` utility
+     * to remove characters that are illegal in filenames and are not supported by
+     * ISO 8859-15 (Itmse limitation).
      *
-     * Important: Pay attention when choosing a package name.
-     *
-     * Don’t use forbidden file name characters such as slash (/), backslash (), question mark (?),
-     * percent (%), asterisk (*), colon (:), pipe (), quote (‘), double quote ("), less than (<),
-     * greater than (>). Note however, that is list is not exhaustive. Don’t use characters that are
-     * HTML-sensitive such as ampersand (&) or apostrophe (‘). Note: when using itsme signing, only
-     * use characters that are supported by ISO 8859-15. This character set supports most usual
-     * characters, but some software-generated characters like curly apostrophes and long dashes are
-     * not supported
+     * Note: do not add an extension to the name value.
+     * Minimum length: 1.
+     * Maximum length: 150.
      */
     Name: string;
 
