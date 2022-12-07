@@ -329,6 +329,11 @@ export interface Package {
     F2fRedirectUrl: string | null;
 
     /**
+     * Determines whether a stakeholder may reassign their action to another party.
+     */
+    IsReassignEnabled: boolean;
+
+    /**
      * Determines whether an actor can download the package from the WYSIWYS page (What You See Is
      * What You Sign), before form filling, approving, signing or rejecting.
      */

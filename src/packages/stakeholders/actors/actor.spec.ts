@@ -359,6 +359,7 @@ describe('create', () => {
                     },
                     ExternalReference: null,
                     Id: data.Elements[0].Id,
+                    KeyPairMappings: [],
                     LegalNotice: {
                         Text: null,
                     },

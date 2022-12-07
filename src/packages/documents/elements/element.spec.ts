@@ -224,6 +224,7 @@ describe('createSigningField', () => {
                 Text: 'Legalese here',
             },
             Id: response.data.Id,
+            KeyPairMappings: [],
             ActorId: response.data.ActorId,
             Location: {
                 Page: 1,
@@ -265,6 +266,7 @@ describe('createSigningField', () => {
                 Text: 'Legalese here',
             },
             Id: response.data.Id,
+            KeyPairMappings: [],
             ActorId: response.data.ActorId,
             Location: {
                 Left: 98,
@@ -415,6 +417,7 @@ describe('getById', () => {
                 },
                 ExternalReference: null,
                 Id: createElementResponse.data.Id,
+                KeyPairMappings: [],
                 LegalNotice: {
                     Text: null,
                 },

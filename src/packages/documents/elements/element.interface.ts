@@ -256,6 +256,11 @@ export type CreateSigningFieldOutput =
     & {
 
     /**
+     * Undocumented property added in eSignatures v7.2.
+     */
+    KeyPairMappings: [];
+
+    /**
      * SigningMethod that was used to sign this SigningField.
      */
     UsedSigningMethod: string | null;

@@ -15,6 +15,7 @@ A promise based library for the API of [connective.eu](https://connective.eu) wi
 
 | Package version | Connective API version | eSignature version                                                            |
 |-----------------|------------------------|-------------------------------------------------------------------------------|
+| ^3.0.0          | v4                     | [v7.2](https://apidocs.connective.eu/#cd7d157e-8496-4b8e-a1c8-209d253d71d0)   |
 | ^2.0.0          | v4                     | [v7.1](https://apidocs.connective.eu/#0f142ada-238b-4eb9-ac2a-b238f247c133)   |
 | ^1.0.0          | v3                     | [v5.5](https://documentation.connective.eu/en-us/eSignatures5.5/api/API.html) |
 

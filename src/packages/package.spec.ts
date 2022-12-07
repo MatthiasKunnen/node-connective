@@ -67,7 +67,8 @@ describe('create', () => {
             F2fSigningUrl: null,
             PreviewUrl: null,
             F2fRedirectUrl: null,
-            IsUnsignedContentDownloadable: false,
+            IsReassignEnabled: true,
+            IsUnsignedContentDownloadable: true,
             ActionUrlExpirationPeriodInDays: null,
             ProofCorrelationId: null,
             AddInitiatorAsReceiver: false,
@@ -139,7 +140,8 @@ describe('create', () => {
             F2fSigningUrl: null,
             PreviewUrl: null,
             F2fRedirectUrl: null,
-            IsUnsignedContentDownloadable: false,
+            IsReassignEnabled: true,
+            IsUnsignedContentDownloadable: true,
             ActionUrlExpirationPeriodInDays: null,
             ProofCorrelationId: null,
             AddInitiatorAsReceiver: false,
@@ -270,6 +272,7 @@ describe('create', () => {
             // returned
             ExpiryDate: null,
             DocumentGroupCode: createResponse.data.DocumentGroupCode,
+            IsReassignEnabled: false,
             IsUnsignedContentDownloadable: true,
             PreviewUrl: null,
             ProofCorrelationId: null,
@@ -298,6 +301,7 @@ describe('create', () => {
                                 Width: 300,
                             },
                             ExternalReference: 'Sig1',
+                            KeyPairMappings: [],
                             LegalNotice: {
                                 Text: 'I do solemnly swear I am up to no good.',
                             },
@@ -381,6 +385,7 @@ describe('create', () => {
                                         Width: 300,
                                     },
                                     ExternalReference: 'Sig1',
+                                    KeyPairMappings: [],
                                     LegalNotice: {
                                         Text: 'I do solemnly swear I am up to no good.',
                                     },
@@ -575,7 +580,8 @@ describe('getById', () => {
             F2fSigningUrl: null,
             PreviewUrl: null,
             F2fRedirectUrl: null,
-            IsUnsignedContentDownloadable: false,
+            IsReassignEnabled: true,
+            IsUnsignedContentDownloadable: true,
             ActionUrlExpirationPeriodInDays: null,
             ProofCorrelationId: null,
             AddInitiatorAsReceiver: false,
@@ -722,6 +728,7 @@ it('response should match GetPackageByIdResponse', () => {
                         },
                         Id: '2ba16f3d-f547-4bb8-9847-4bb5f26947e4',
                         ActorId: 'cefb9c80-c408-4a7b-8b78-8c8eb507bdd1',
+                        KeyPairMappings: [],
                         Location: {
                             Page: 1,
                             Top: 306,
@@ -746,6 +753,7 @@ it('response should match GetPackageByIdResponse', () => {
                         },
                         Id: '82d9e180-be8a-467f-9716-429e6c9eeec9',
                         ActorId: '6dbab85d-7d70-4640-9465-20479e46e350',
+                        KeyPairMappings: [],
                         Location: {
                             Page: 1,
                             Top: 100,
@@ -807,6 +815,7 @@ it('response should match GetPackageByIdResponse', () => {
                                 },
                                 Id: '82d9e180-be8a-467f-9716-429e6c9eeec9',
                                 ActorId: '6dbab85d-7d70-4640-9465-20479e46e350',
+                                KeyPairMappings: [],
                                 Location: {
                                     Page: 1,
                                     Top: 100,
@@ -917,6 +926,7 @@ it('response should match GetPackageByIdResponse', () => {
                                 },
                                 Id: '2ba16f3d-f547-4bb8-9847-4bb5f26947e4',
                                 ActorId: 'cefb9c80-c408-4a7b-8b78-8c8eb507bdd1',
+                                KeyPairMappings: [],
                                 Location: {
                                     Page: 1,
                                     Top: 306,
@@ -973,6 +983,7 @@ it('response should match GetPackageByIdResponse', () => {
         F2fSigningUrl: null,
         PreviewUrl: null,
         F2fRedirectUrl: null,
+        IsReassignEnabled: false,
         IsUnsignedContentDownloadable: false,
         ActionUrlExpirationPeriodInDays: null,
         ProofCorrelationId: null,
