@@ -271,7 +271,7 @@ export interface Package {
     Documents: Array<Document>;
 
     /**
-     * The stakeholders that were added tp the package.
+     * The stakeholders that were added to the package.
      */
     Stakeholders: Array<Stakeholder>;
 
