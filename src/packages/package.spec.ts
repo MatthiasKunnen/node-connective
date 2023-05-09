@@ -76,6 +76,16 @@ describe('create', () => {
             MustBeArchived: false,
             ArchiveAuditProofs: false,
             ArchiveAuditTrail: false,
+            AutomaticReminder: {
+                DaysBeforeFirstReminder: 0,
+                IsRepeatRemindersEnabled: false,
+                IsSendAutomaticRemindersEnabled: false,
+                RepeatReminders: 0,
+            },
+            ExpirationReminder: {
+                DaysBeforeExpirationReminder: 0,
+                IsSendExpirationRemindersEnabled: false,
+            },
         });
     });
 
@@ -126,6 +136,7 @@ describe('create', () => {
                     AdditionalProperties: {},
                     ExternalReference: null,
                     PhoneNumber: null,
+                    Substitutes: [],
                 },
             ],
             DefaultLegalNotice: {
@@ -149,6 +160,16 @@ describe('create', () => {
             MustBeArchived: false,
             ArchiveAuditProofs: false,
             ArchiveAuditTrail: false,
+            AutomaticReminder: {
+                DaysBeforeFirstReminder: 0,
+                IsRepeatRemindersEnabled: false,
+                IsSendAutomaticRemindersEnabled: false,
+                RepeatReminders: 0,
+            },
+            ExpirationReminder: {
+                DaysBeforeExpirationReminder: 0,
+                IsSendExpirationRemindersEnabled: false,
+            },
         });
     });
 
@@ -344,6 +365,7 @@ describe('create', () => {
                         },
                     ],
                     Status: 'Draft',
+                    OrderIndex: 2, // @todo Update OrderIndex when connective fixes it
                     ProofCorrelationId: null,
                 },
             ],
@@ -362,6 +384,7 @@ describe('create', () => {
                     AdditionalProperties: {
                         BeId: '90020199704',
                     },
+                    Substitutes: [],
                     Actors: [
                         {
                             Id: createResponse.data.Stakeholders[0].Actors[0].Id,
@@ -419,6 +442,7 @@ describe('create', () => {
                     AdditionalProperties: {
                         BeId: '90020199704',
                     },
+                    Substitutes: [],
                     Actors: [
                         {
                             Type: 'formFiller',
@@ -466,6 +490,16 @@ describe('create', () => {
             ThemeCode: createResponse.data.ThemeCode,
             UnplacedElements: [],
             Warnings: [],
+            AutomaticReminder: {
+                DaysBeforeFirstReminder: 0,
+                IsRepeatRemindersEnabled: false,
+                IsSendAutomaticRemindersEnabled: false,
+                RepeatReminders: 0,
+            },
+            ExpirationReminder: {
+                DaysBeforeExpirationReminder: 0,
+                IsSendExpirationRemindersEnabled: false,
+            },
         });
     });
 });
@@ -589,6 +623,16 @@ describe('getById', () => {
             MustBeArchived: false,
             ArchiveAuditProofs: false,
             ArchiveAuditTrail: false,
+            AutomaticReminder: {
+                DaysBeforeFirstReminder: 0,
+                IsRepeatRemindersEnabled: false,
+                IsSendAutomaticRemindersEnabled: false,
+                RepeatReminders: 0,
+            },
+            ExpirationReminder: {
+                DaysBeforeExpirationReminder: 0,
+                IsSendExpirationRemindersEnabled: false,
+            },
         });
     });
 });
@@ -770,6 +814,7 @@ it('response should match GetPackageByIdResponse', () => {
                 ],
                 ExternalReference: null,
                 ProofCorrelationId: null,
+                OrderIndex: 2, // @todo Update OrderIndex when connective fixes it
             },
         ],
         Stakeholders: [
@@ -778,6 +823,7 @@ it('response should match GetPackageByIdResponse', () => {
                 GroupName: 'Approvers',
                 Members: [
                     {
+                        Substitutes: [],
                         Language: 'nl',
                         FirstName: 'M1',
                         LastName: 'K1',
@@ -788,6 +834,7 @@ it('response should match GetPackageByIdResponse', () => {
                         AdditionalProperties: {},
                     },
                     {
+                        Substitutes: [],
                         Language: 'en',
                         FirstName: 'M2',
                         LastName: 'K2',
@@ -909,6 +956,7 @@ it('response should match GetPackageByIdResponse', () => {
                 PhoneNumber: null,
                 BirthDate: null,
                 AdditionalProperties: {},
+                Substitutes: [],
                 Id: 'c9fcd09c-98bf-4712-9cfd-8377c2963657',
                 PackageId: '1500230f-c447-4f19-95d5-3035c867f4e7',
                 Actors: [
@@ -992,6 +1040,16 @@ it('response should match GetPackageByIdResponse', () => {
         MustBeArchived: false,
         ArchiveAuditProofs: false,
         ArchiveAuditTrail: false,
+        AutomaticReminder: {
+            IsSendAutomaticRemindersEnabled: false,
+            DaysBeforeFirstReminder: 0,
+            IsRepeatRemindersEnabled: false,
+            RepeatReminders: 0,
+        },
+        ExpirationReminder: {
+            IsSendExpirationRemindersEnabled: false,
+            DaysBeforeExpirationReminder: 0,
+        },
     };
 
     expect(data).toEqual<Package>(data);

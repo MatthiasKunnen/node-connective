@@ -4,6 +4,10 @@ import {
     CreateActorParamsInput,
 } from './actors/actor.interface';
 
+export interface WithSubstitutes {
+    Substitutes: Array<unknown>;
+}
+
 export interface StakeholderBase {
     /**
      * Unique identifier of the stakeholder.
@@ -90,9 +94,10 @@ export type CreateMember = Omit<
 export type Member = PickRequired<
     CreateMember,
     'AdditionalProperties'
->;
+> & WithSubstitutes;
 
 export interface StakeholderPerson extends StakeholderBase,
+    WithSubstitutes,
     Omit<CreateStakeholderPersonInput<Noop>, 'Actors'> {
 }
 

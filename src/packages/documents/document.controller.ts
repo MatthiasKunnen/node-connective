@@ -95,6 +95,10 @@ export class DocumentController {
      * Get document by orderIndex.
      * The OrderIndex defines the order in which documents should be sorted within a package.
      * 0 for the first document, 1 for the second, ...
+     * @deprecated Warning, OrderIndex is broken in 7.4. The first document index is reported as 2
+     * and the next as 4 by `Document.OrderIndex` but the actual index is 1 and 3 respectively. When
+     * using this function either start counting from one increasing in steps of two or subtract one
+     * from the `OrderIndex`.
      */
     async getByOrderIndex(
         packageId: string,

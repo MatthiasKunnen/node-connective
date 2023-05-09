@@ -5,6 +5,7 @@ import {
     Connective,
     CreateStakeholderPersonInput,
     ElementWithDocumentIndex,
+    Stakeholder,
     StakeholderContactGroup,
     StakeholderGroup,
     StakeholderPerson,
@@ -109,6 +110,7 @@ describe('create', () => {
                     AdditionalProperties: {
                         BeId: '90020199704',
                     },
+                    Substitutes: [],
                 },
             ],
             Id: response.data.Id,
@@ -156,6 +158,7 @@ describe('create', () => {
                     AdditionalProperties: {
                         BeId: '12345678900',
                     },
+                    Substitutes: [],
                 },
             ],
             Id: response.data.Id,
@@ -198,6 +201,7 @@ describe('create', () => {
             PackageId: packageId,
             Actors: [],
             ExternalReference: 'ExternalRef',
+            Substitutes: [],
         });
     });
 
@@ -240,7 +244,7 @@ describe('getById', () => {
             StakeholderId: createStakeholderResponse.data.Id,
         });
 
-        expect(fetchResponse.data).toEqual({
+        expect(fetchResponse.data).toEqual<Stakeholder>({
             Actors: [],
             AdditionalProperties: {},
             BirthDate: null,
@@ -253,6 +257,7 @@ describe('getById', () => {
             PackageId: packageId,
             PhoneNumber: null,
             Type: 'person',
+            Substitutes: [],
         });
     });
 });

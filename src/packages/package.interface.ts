@@ -6,6 +6,12 @@ import {
 } from './documents/document.interface';
 import {ElementWithDocumentIndex} from './documents/elements/element.interface';
 import {
+    PackageAutomaticReminder,
+    PackageAutomaticReminderInput,
+    PackageExpirationReminder,
+    PackageExpirationReminderInput,
+} from './package-reminder.interface';
+import {
     CreateStakeholderInputParams,
     Stakeholder,
 } from './stakeholders/stakeholder.interface';
@@ -195,6 +201,33 @@ export interface CreatePackageWithoutTemplateInput {
      * disabled in the audit tools settings or in the archive settings.
      */
     ArchiveAuditTrail?: boolean;
+
+    /**
+     * If enabled, reminders are automatically sent to stakeholders who have not completed their
+     * tasks yet.
+     *
+     * Using `IsRepeatRemindersEnabled: true` requires `IsSendAutomaticRemindersEnabled: true`.
+     *
+     * Note: Even if the SuppressNotifications parameter is set to true for an actor, this actor
+     * still gets automatic reminders.
+     *
+     * These parameters are available from version 7.4.0 onwards.
+     */
+    AutomaticReminder?: PackageAutomaticReminderInput;
+
+    /**
+     * Available if the parameter ExpiryDate has a value.
+     *
+     * If enabled, stakeholders are automatically notified that the link to a package will expire.
+     *
+     * `IsSendExpirationRemindersEnabled: true` requires `DaysBeforeExpirationReminder` and
+     * vice versa.
+     *
+     * Note: Even if the parameter SuppressNotifications is set to true for an actor, this actor
+     * still gets the expiration reminder.
+     * These parameters are available from version 7.4.0 onwards.
+     */
+    ExpirationReminder?: PackageExpirationReminderInput;
 }
 
 export type CreatePackageFromTemplateInput = Pick<Partial<CreatePackageWithoutTemplateInput>,
@@ -379,6 +412,28 @@ export interface Package {
      * is Finished.
      */
     ArchiveAuditTrail: boolean;
+
+    /**
+     * If enabled, reminders are automatically sent to stakeholders who have not completed their
+     * tasks yet.
+     *
+     * Note: Even if the SuppressNotifications parameter is set to true for an actor, this actor
+     * still gets automatic reminders.
+     *
+     * These parameters are available from version 7.4.0 onwards.
+     */
+    AutomaticReminder: PackageAutomaticReminder;
+
+    /**
+     * Available if the parameter ExpiryDate has a value.
+     *
+     * If enabled, stakeholders are automatically notified that the link to a package will expire.
+     *
+     * Note: Even if the parameter SuppressNotifications is set to true for an actor, this actor
+     * still gets the expiration reminder.
+     * These parameters are available from version 7.4.0 onwards.
+     */
+    ExpirationReminder: PackageExpirationReminder;
 }
 
 export interface UpdatePackageStatusInput {

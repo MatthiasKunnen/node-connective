@@ -225,6 +225,14 @@ export interface Document {
      */
     ExternalReference?: string | null;
 
+    /**
+     * New in eSignatures 7.4.0, undocumented, and broken. The first document index is reported as 2
+     * and the next as 4 but the actual index is 1 and 3 respectively. When using
+     * `documents.getByOrderIndex` either start counting from one increasing in steps of two or
+     * subtract one from the `OrderIndex`.
+     */
+    OrderIndex: number;
+
     ProofCorrelationId?: string | null;
 }
 

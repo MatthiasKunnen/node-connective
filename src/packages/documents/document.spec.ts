@@ -110,6 +110,7 @@ describe('create', () => {
             Status: 'Draft',
             Elements: [],
             ExternalReference: null,
+            OrderIndex: 2, // @todo Update OrderIndex when connective fixes it
             ProofCorrelationId: null,
         });
     });
@@ -233,6 +234,7 @@ describe('getById', () => {
             Status: 'Draft',
             Elements: [],
             ExternalReference: null,
+            OrderIndex: 2, // @todo Update OrderIndex when connective fixes it
             ProofCorrelationId: null,
         });
     });
@@ -270,8 +272,12 @@ describe('getByOrderIndex', () => {
         });
         const getDocumentResponse = await connectiveClient.packages.documents.getByOrderIndex(
             createPackageResponse.data.Id,
-            0,
+            // @todo Connective broke OrderIndex, update this -1 workaround when fixed
+            createDocumentResponse.data.OrderIndex - 1,
         );
+        // If this point is reached, the Document.OrderIndex can be used in combination with
+        // getByOrderIndex. If it fails hereafter on OrderIndex, then Connective have changed their
+        // indexing.
 
         expect(getDocumentResponse.data).toEqual<Document>({
             Id: createDocumentResponse.data.Id,
@@ -283,6 +289,7 @@ describe('getByOrderIndex', () => {
             Status: 'Draft',
             Elements: [],
             ExternalReference: null,
+            OrderIndex: 2, // @todo Update OrderIndex when connective fixes it
             ProofCorrelationId: null,
         });
     });
