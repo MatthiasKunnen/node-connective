@@ -20,8 +20,6 @@ A promise based library for the API of [connective.eu](https://connective.eu) wi
 | ^2.0.0          | v4                     | [v7.1](https://apidocs.connective.eu/#0f142ada-238b-4eb9-ac2a-b238f247c133)   |
 | ^1.0.0          | v3                     | [v5.5](https://documentation.connective.eu/en-us/eSignatures5.5/api/API.html) |
 
-**Warning** OrderIndex is broken in 7.4. The first document index is reported as 2 and the next as 4 by `Document.OrderIndex` but the actual index is 1 and 3 respectively. When using `documents.getByOrderIndex` either start counting from one increasing in steps of two or subtract one from the `OrderIndex`.
-
 # Usage
 This is a simple example of how to create a package and upload a document.
 

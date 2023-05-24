@@ -365,7 +365,7 @@ describe('create', () => {
                         },
                     ],
                     Status: 'Draft',
-                    OrderIndex: 2, // @todo Update OrderIndex when connective fixes it
+                    OrderIndex: 0,
                     ProofCorrelationId: null,
                 },
             ],
@@ -814,7 +814,7 @@ it('response should match GetPackageByIdResponse', () => {
                 ],
                 ExternalReference: null,
                 ProofCorrelationId: null,
-                OrderIndex: 2, // @todo Update OrderIndex when connective fixes it
+                OrderIndex: 0,
             },
         ],
         Stakeholders: [
