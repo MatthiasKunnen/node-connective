@@ -2,6 +2,7 @@ import {Readable} from 'stream';
 
 import {AxiosInstance, AxiosResponse} from 'axios';
 
+import {AuditTrailsController} from './audit-trails/audit-trails.controller';
 import {DocumentController} from './documents/document.controller';
 import {ElementController} from './documents/elements/element.controller';
 import {
@@ -14,11 +15,13 @@ import {StakeholderController} from './stakeholders/stakeholder.controller';
 
 export class PackageController {
 
+    readonly auditTrails: AuditTrailsController;
     readonly documents: DocumentController;
     readonly elements: ElementController;
     readonly stakeholders: StakeholderController;
 
     constructor(private readonly http: AxiosInstance) {
+        this.auditTrails = new AuditTrailsController(this.http);
         this.documents = new DocumentController(this.http);
         this.elements = new ElementController(this.http);
         this.stakeholders = new StakeholderController(this.http);
