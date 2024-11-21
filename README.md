@@ -1,5 +1,5 @@
 [![npm version](https://img.shields.io/npm/v/connective-api.svg?logo=npm&style=for-the-badge)](https://www.npmjs.com/package/connective-api)
-[![Build Status](https://img.shields.io/github/workflow/status/MatthiasKunnen/node-connective/Main?label=Build&logo=github&style=for-the-badge)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/MatthiasKunnen/node-connective/main.yaml?label=Build&logo=github&style=for-the-badge)
 ](https://github.com/MatthiasKunnen/node-connective/actions)
 [![Code coverage](https://img.shields.io/codecov/c/github/MatthiasKunnen/node-connective/master?style=for-the-badge)
 ](https://app.codecov.io/gh/MatthiasKunnen/node-connective)
