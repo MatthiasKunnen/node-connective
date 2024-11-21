@@ -60,6 +60,7 @@ export interface AddElementInput<T extends CreateElementInputBase> {
 }
 
 export type CreateElementInputBase = ExternalReference;
+export type MarkerType = 'None' | 'Text' | 'PdfFormField';
 
 interface CreateElementOutputBase {
 
@@ -83,6 +84,20 @@ interface CreateElementOutputBase {
      * Finished, Refused.
      */
     Status: 'Pending' | 'InProgress' | 'Rejected' | 'Failed' | 'Finished' | 'Refused';
+
+    /**
+     * The type of marker of an unplaced element.
+     * Note: Only viable for unplaced elements of a package.
+     * @since eSignatures 7.5.0
+     */
+    MarkerType: MarkerType;
+
+    /**
+     * A piece of text or PDF field identifier of the corresponding MarkerType.
+     * Note: Only viable for unplaced elements of a package.
+     * @since eSignatures 7.5.0
+     */
+    MarkerId?: string;
 }
 
 export interface CreateElementWithFieldIdentifier {

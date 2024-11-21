@@ -343,6 +343,7 @@ describe('create', () => {
                                 Page: 1,
                                 Top: 306,
                             },
+                            MarkerType: 'None',
                             SigningMethods: [
                                 'Manual:Manual',
                             ],
@@ -369,6 +370,7 @@ describe('create', () => {
                                 Page: 1,
                                 Top: 466,
                             },
+                            MarkerType: 'None',
                             Name: 'txtbox01',
                             Status: 'Pending',
                             ToolTipLabel: null,
@@ -429,6 +431,7 @@ describe('create', () => {
                                         Page: 1,
                                         Top: 306,
                                     },
+                                    MarkerType: 'None',
                                     SigningMethods: [
                                         'Manual:Manual',
                                     ],
@@ -488,6 +491,7 @@ describe('create', () => {
                                         Page: 1,
                                         Top: 466,
                                     },
+                                    MarkerType: 'None',
                                     Name: 'txtbox01',
                                     Status: 'Pending',
                                     ToolTipLabel: null,
@@ -802,6 +806,7 @@ it('response should match GetPackageByIdResponse', () => {
                         Status: 'Finished',
                         ExternalReference: null,
                         CompletedDate: '2022-11-17T11:16:24Z',
+                        MarkerType: 'None',
                     },
                     {
                         Type: 'signingfield',
@@ -827,6 +832,7 @@ it('response should match GetPackageByIdResponse', () => {
                         Status: 'Finished',
                         ExternalReference: null,
                         CompletedDate: '2022-11-17T11:18:56Z',
+                        MarkerType: 'None',
                     },
                 ],
                 ExternalReference: null,
@@ -885,6 +891,7 @@ it('response should match GetPackageByIdResponse', () => {
                                     Top: 100,
                                     Left: 63,
                                 },
+                                MarkerType: 'None',
                                 Dimensions: {
                                     Width: 340,
                                     Height: 200,
@@ -1004,6 +1011,7 @@ it('response should match GetPackageByIdResponse', () => {
                                 Status: 'Finished',
                                 ExternalReference: null,
                                 CompletedDate: '2022-11-17T11:16:24Z',
+                                MarkerType: 'None',
                             },
                         ],
                         RedirectUrl: null,

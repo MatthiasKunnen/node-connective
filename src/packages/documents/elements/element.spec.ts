@@ -89,6 +89,7 @@ describe('createCheckbox', () => {
             Status: 'Pending',
             ExternalReference: 'ManualCheck1',
             CompletedDate: null,
+            MarkerType: 'None',
         });
     });
 });
@@ -186,6 +187,7 @@ describe('createRadioGroup', () => {
             Status: 'Pending',
             ExternalReference: null,
             CompletedDate: null,
+            MarkerType: 'None',
         });
     });
 });
@@ -238,6 +240,7 @@ describe('createSigningField', () => {
             Status: 'Pending',
             ExternalReference: 'ManualLocation1',
             CompletedDate: null,
+            MarkerType: 'None',
         });
     });
 
@@ -280,6 +283,7 @@ describe('createSigningField', () => {
             Status: 'Pending',
             ExternalReference: 'MarkerSig1',
             CompletedDate: null,
+            MarkerType: 'None',
         });
     });
 });
@@ -321,6 +325,7 @@ describe('createTextBoxField', () => {
             Status: 'Pending',
             ExternalReference: 'ManualText1',
             CompletedDate: null,
+            MarkerType: 'None',
         });
     });
 
@@ -359,6 +364,7 @@ describe('createTextBoxField', () => {
             Status: 'Pending',
             ExternalReference: 'MarkerText1',
             CompletedDate: null,
+            MarkerType: 'None',
         });
     });
 });
@@ -430,6 +436,7 @@ describe('getById', () => {
                 Status: 'Pending',
                 Type: 'signingfield',
                 UsedSigningMethod: null,
+                MarkerType: 'None',
             });
         });
     });
