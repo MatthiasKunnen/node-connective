@@ -208,8 +208,10 @@ export interface Document {
     /**
      * Language that will be used in signature texts and for legal notices when the LegalNoticeCode
      * is filled for an Actor.
+     *
+     * Was missing in v7.1 and v7.2 and added in v7.2 < x <= v7.4.
      */
-    // Language: string; // Documented but missing
+    Language: string;
 
     /**
      * Status of the document within the package. The possible values are draft, pending,

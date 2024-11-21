@@ -320,7 +320,7 @@ describe('create', () => {
                     PackageId: createResponse.data.Id,
                     CreationDate: createResponse.data.Documents[0].CreationDate,
                     Name: 'Doc 1',
-                    // Language: 'en', // should be present but missing
+                    Language: 'en',
                     ExternalReference: 'doc1',
                     IsOptional: false,
                     MediaType: 'application/pdf',
@@ -774,6 +774,7 @@ it('response should match GetPackageByIdResponse', () => {
                 Name: 'Doc 1',
                 IsOptional: false,
                 CreationDate: '2022-11-17T11:05:41Z',
+                Language: 'en',
                 MediaType: 'application/pdf',
                 Status: 'Finished',
                 Elements: [
