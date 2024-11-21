@@ -6,6 +6,7 @@ export * from './packages/documents/document.interface';
 export * from './packages/documents/document.controller';
 export * from './packages/documents/elements/element.interface';
 export * from './packages/documents/elements/element.controller';
+export * from './packages/otp-authentication.interface';
 export * from './packages/package-reminder.interface';
 export * from './packages/package.controller';
 export * from './packages/package.interface';

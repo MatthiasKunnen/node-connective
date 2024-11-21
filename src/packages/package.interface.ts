@@ -5,6 +5,7 @@ import {
     Document,
 } from './documents/document.interface';
 import {ElementWithDocumentIndex} from './documents/elements/element.interface';
+import {OtpAuthenticationSetting} from './otp-authentication.interface';
 import {
     PackageAutomaticReminder,
     PackageAutomaticReminderInput,
@@ -228,6 +229,18 @@ export interface CreatePackageWithoutTemplateInput {
      * These parameters are available from version 7.4.0 onwards.
      */
     ExpirationReminder?: PackageExpirationReminderInput;
+
+    /**
+     * Contains settings for the package OTP authentication on WYSIWYS.
+     *
+     * Enables or disables the ability to authenticate an actor with SMS or Mail code when entering
+     * to the WYSIWYS, before taking action on the package.
+     *
+     * Note: If only IsSmsOtpAuthenticationEnabled is true, all stakeholders will be required to
+     * have a phone number.
+     * @since eSignatures 7.5.0
+     */
+    OtpAuthenticationSetting?: OtpAuthenticationSetting;
 }
 
 export type CreatePackageFromTemplateInput = Pick<Partial<CreatePackageWithoutTemplateInput>,
@@ -434,6 +447,18 @@ export interface Package {
      * These parameters are available from version 7.4.0 onwards.
      */
     ExpirationReminder: PackageExpirationReminder;
+
+    /**
+     * Contains settings for the package OTP authentication on WYSIWYS.
+     *
+     * Enables or disables the ability to authenticate an actor with SMS or Mail code when entering
+     * to the WYSIWYS, before taking action on the package.
+     *
+     * Note: If only IsSmsOtpAuthenticationEnabled is true, all stakeholders will be required to
+     * have a phone number.
+     * @since eSignatures 7.5.0
+     */
+    OtpAuthenticationSetting: OtpAuthenticationSetting;
 }
 
 export interface UpdatePackageStatusInput {

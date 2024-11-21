@@ -64,6 +64,10 @@ describe('create', () => {
             DefaultRedirectUrl: null,
             CallBackUrl: null,
             NotificationCallBackUrl: null,
+            OtpAuthenticationSetting: {
+                IsMailOtpAuthenticationEnabled: false,
+                IsSmsOtpAuthenticationEnabled: false,
+            },
             F2fSigningUrl: null,
             PreviewUrl: null,
             F2fRedirectUrl: null,
@@ -148,6 +152,10 @@ describe('create', () => {
             DefaultRedirectUrl: null,
             CallBackUrl: null,
             NotificationCallBackUrl: null,
+            OtpAuthenticationSetting: {
+                IsMailOtpAuthenticationEnabled: false,
+                IsSmsOtpAuthenticationEnabled: false,
+            },
             F2fSigningUrl: null,
             PreviewUrl: null,
             F2fRedirectUrl: null,
@@ -299,6 +307,10 @@ describe('create', () => {
             ProofCorrelationId: null,
             F2fSigningUrl: null,
             NotificationCallBackUrl: 'https://example.com/notification',
+            OtpAuthenticationSetting: {
+                IsMailOtpAuthenticationEnabled: false,
+                IsSmsOtpAuthenticationEnabled: false,
+            },
             DefaultLegalNotice: {
                 Text: 'I do solemnly swear I am up to no good.',
             },
@@ -611,6 +623,10 @@ describe('getById', () => {
             DefaultRedirectUrl: null,
             CallBackUrl: null,
             NotificationCallBackUrl: null,
+            OtpAuthenticationSetting: {
+                IsMailOtpAuthenticationEnabled: false,
+                IsSmsOtpAuthenticationEnabled: false,
+            },
             F2fSigningUrl: null,
             PreviewUrl: null,
             F2fRedirectUrl: null,
@@ -1028,6 +1044,10 @@ it('response should match GetPackageByIdResponse', () => {
         DefaultRedirectUrl: null,
         CallBackUrl: null,
         NotificationCallBackUrl: null,
+        OtpAuthenticationSetting: {
+            IsMailOtpAuthenticationEnabled: false,
+            IsSmsOtpAuthenticationEnabled: false,
+        },
         F2fSigningUrl: null,
         PreviewUrl: null,
         F2fRedirectUrl: null,
